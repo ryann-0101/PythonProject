@@ -47,7 +47,5 @@ def menu():
         print("Invalid choice.")
 
 
-
-
-
-print("Do not run this file directly - instead run main.py")
+if __name__ == "__main__":
+    print("Do not run this file directly - instead run main.py")

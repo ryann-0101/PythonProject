@@ -7,23 +7,33 @@ cipher = Fernet(key)
 
 
 def encrypt():
-    phrase = input("Enter phrase to encrypt: ")
-    encrypted = cipher.encrypt(phrase.encode())
-    print("Encrypted phrase:\n", encrypted.decode())  # Show token
+    try:
+        phrase = input("Enter phrase to encrypt: ")
+        encrypted = cipher.encrypt(phrase.encode())
+        print("Encrypted phrase:\n", encrypted.decode())  # Show token
+        print("Going back to menu.....")
+        menu()
+    except:
+        print("Invalid Input")
+        encrypt()
 
 def decrypt():
     token = input("Enter token to decrypt: ").encode()  # Convert back to bytes
     try:
         decrypted = cipher.decrypt(token).decode()
         print("Decrypted phrase:\n", decrypted)
+        print("Going back to menu.....")
+        menu()
     except:
         print("Invalid token or wrong key!")
+        decrypt()
 
 def menu():
     print("""
 **MENU**
 1 - Encrypt 
 2 - Decrypt
+3 - Exit Program
 """)
     choice = int(input("Enter operation to complete: "))
 
@@ -31,5 +41,7 @@ def menu():
         encrypt()
     elif choice == 2:
         decrypt()
+    elif choice ==3:
+        print("Exiting Program.....")
     else:
         print("Invalid choice.")

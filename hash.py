@@ -2,7 +2,7 @@
 from cryptography.fernet import Fernet
 
 # Use the same key every time (hardcoded for simplicity)
-key = b'l8gEh39bkcFotJRANfvGv9hXHH0S92RLLYLmGAVQ0Fg='  # Replace with a generated key once
+key = b'l8gEh39bkcFotJRANfvGv9hXHH0S92RLLYLmGAVQ0Fg='  
 cipher = Fernet(key)
 
 
@@ -10,7 +10,7 @@ def encrypt():
     try:
         phrase = input("Enter phrase to encrypt: ")
         encrypted = cipher.encrypt(phrase.encode())
-        print("Encrypted phrase:\n", encrypted.decode())  # Show token
+        print("Encrypted phrase:\n", encrypted.decode())  
         print("Going back to menu.....")
         menu()
     except:
@@ -45,3 +45,9 @@ def menu():
         print("Exiting Program.....")
     else:
         print("Invalid choice.")
+
+
+
+
+
+print("Do not run this file directly - instead run main.py")

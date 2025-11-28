@@ -5,12 +5,6 @@ from cryptography.fernet import Fernet
 key = b'l8gEh39bkcFotJRANfvGv9hXHH0S92RLLYLmGAVQ0Fg='  # Replace with a generated key once
 cipher = Fernet(key)
 
-print("""
-**MENU**
-1 - Encrypt 
-2 - Decrypt
-""")
-choice = int(input("Enter operation to complete: "))
 
 def encrypt():
     phrase = input("Enter phrase to encrypt: ")
@@ -25,9 +19,17 @@ def decrypt():
     except:
         print("Invalid token or wrong key!")
 
-if choice == 1:
-    encrypt()
-elif choice == 2:
-    decrypt()
-else:
-    print("Invalid choice.")
+def menu():
+    print("""
+**MENU**
+1 - Encrypt 
+2 - Decrypt
+""")
+    choice = int(input("Enter operation to complete: "))
+
+    if choice == 1:
+        encrypt()
+    elif choice == 2:
+        decrypt()
+    else:
+        print("Invalid choice.")
